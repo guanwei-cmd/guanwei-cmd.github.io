@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="生活剛剛好，每天一封，把補貼、勞動權益與生活資訊講人話。">
+  <meta name="robots" content="index,follow">
+  <meta name="theme-color" content="#f6df3b">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="生活剛剛好｜每天一封生活資訊">
+  <meta property="og:description" content="每天一封，把補貼、勞動權益與生活資訊講人話。">
+  <meta property="og:url" content="https://guanwei-cmd.github.io/life/">
+  <meta property="og:image" content="https://guanwei-cmd.github.io/life/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <title>生活剛剛好｜每天一封生活資訊</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/life/life.css">
+  <script>try{if(sessionStorage.getItem("lifeIntroSeen")&&new URLSearchParams(location.search).get("intro")!=="1")document.documentElement.classList.add("intro-seen")}catch(e){}</script>
+</head>
+<body>
+  <section class="site-intro" data-life-intro role="dialog" aria-modal="true" aria-label="生活剛剛好開場">
+    <div class="intro-loader" aria-hidden="true"><span>好</span></div>
+    <div class="intro-frame">
+      <header class="intro-header">
+        <a class="intro-brand" href="#top" data-intro-enter><span>好</span><b>生活剛剛好</b></a>
+        <p>DAILY LIFE LETTER <span>2026</span></p>
+      </header>
+      <div class="intro-center">
+        <p>每天一題，把生活資訊整理成你看得懂的樣子</p>
+        <h1 aria-label="生活剛剛好"><span>生</span><span>活</span><span>剛</span><span>剛</span><span>好</span></h1>
+        <button type="button" class="intro-enter" data-intro-enter aria-label="進入生活剛剛好網站"><i></i><span>點擊進入</span></button>
+      </div>
+      <footer class="intro-footer">
+        <p>補貼津貼　勞動權益　生活工具</p>
+        <p>LIFE, MADE CLEAR</p>
+      </footer>
+      <button type="button" class="intro-skip" data-intro-enter>跳過 <span>→</span></button>
+    </div>
+  </section>
+
+  <header class="site-header">
+    <a class="brand" href="/life/" aria-label="生活剛剛好首頁">
+      <span class="brand-mark" aria-hidden="true">好</span>
+      <span class="brand-copy"><b>生活剛剛好</b><small>DAILY LIFE LETTER</small></span>
+    </a>
+    <nav aria-label="主要導覽">
+      <a href="#today">今天看什麼</a>
+      <a href="#calculator">生活工具</a>
+      <a href="#about">我們怎麼做</a>
+    </nav>
+    <a class="header-cta" href="#subscribe">免費訂閱</a>
+  </header>
+
+  <main>
+    <section class="hero" id="top">
+      <div class="hero-copy">
+        <p class="eyebrow">每天 3 分鐘，讀懂一件生活權益</p>
+        <h1 tabindex="-1">生活資訊，<br>整理成<span>你看得懂</span>的樣子。</h1>
+        <p class="hero-lede">一天只處理一個生活問題。從補貼資格、可以拿多少，到文件與申請步驟，都整理在自己的專題頁，不再把你丟回難讀的公文網站。</p>
+        <form class="subscribe-form" data-life-subscribe>
+          <div class="form-row">
+            <label>
+              <span class="sr-only">電子信箱</span>
+              <input type="email" name="email" autocomplete="email" placeholder="你的 Email" maxlength="254" required>
+            </label>
+            <label class="city-select">
+              <span class="sr-only">關心地區</span>
+              <select name="city">
+                <option>不分地區</option><option>北北基</option><option>桃竹苗</option>
+                <option>中彰投</option><option>雲嘉南</option><option>高屏</option>
+                <option>宜花東</option><option>離島</option>
+              </select>
+            </label>
+            <input class="honeypot" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <button type="submit">免費加入 <span aria-hidden="true">↗</span></button>
+          </div>
+          <p class="form-note" role="status">每天早上寄出・隨時可以退訂・<a href="/life/privacy/">隱私說明</a></p>
+        </form>
+        <p class="reader-note">和認真生活的人一起，慢慢把權益看懂。</p>
+      </div>
+
+      <div class="hero-visual" aria-label="電子報內容預覽">
+        <div class="scene-cloud cloud-one" aria-hidden="true"></div>
+        <div class="scene-cloud cloud-two" aria-hidden="true"></div>
+        <div class="island-ground" aria-hidden="true"><span></span></div>
+        <article class="newsletter-preview">
+          <span class="preview-pin" aria-hidden="true"></span>
+          <div class="preview-topline"><span>生活剛剛好</span><span>DAILY BRIEF</span></div>
+          <p class="preview-date">2026.08.15 SAT.</p>
+          <h2>開學扶助金，<br>現在可以一起領？</h2>
+          <div class="preview-story featured"><b>01</b><span><small>先看結論</small>新制取消了哪一個二選一限制</span></div>
+          <div class="preview-story"><b>02</b><span><small>資格與金額</small>四種學制金額與20%加給</span></div>
+          <div class="preview-story"><b>03</b><span><small>文件與步驟</small>等公告前先把資料備齊</span></div>
+          <div class="preview-footer"><span>3 MIN READ</span><span>政府官方來源</span></div>
+        </article>
+        <aside class="verified-note">
+          <strong>查過才寄</strong>
+          <span>官方來源</span><span>更新日期</span><span>申請入口</span>
+        </aside>
+      </div>
+    </section>
+
+    <section class="trust-strip" aria-label="電子報特色">
+      <span><b>01</b>一天只整理一個主題</span>
+      <span><b>02</b>完整內容留在自己的頁面</span>
+      <span><b>03</b>官方原文只留作查核</span>
+    </section>
+
+    <section class="section today" id="today">
+      <header class="section-heading">
+        <div><p class="kicker">第一輯・五篇生活整理</p><h2>先把接下來五件事看懂</h2></div>
+        <p>更新於 2026.08.14<br>每篇都附官方查核來源</p>
+      </header>
+      <div class="story-grid issue-archive">
+        <a class="story-card topic-story featured-story" href="/life/issues/2026-08-15/school-living-aid-2026/">
+          <div class="topic-art"><img src="/life/assets/school-aid.png" alt="" aria-hidden="true"></div>
+          <div class="story-copy">
+            <div class="story-number">01 <span>08.15</span></div>
+            <small>就學扶助</small>
+            <h3>生活扶助金，可以和學費減免一起領</h3>
+            <p>四種學制金額、20%加給、正式學籍範圍與申請文件，一次整理。</p>
+            <footer><span>閱讀完整專題</span><b aria-hidden="true">↗</b></footer>
+          </div>
+        </a>
+        <a class="story-card topic-story" href="/life/issues/2026-08-16/summer-electricity-rates-2026/">
+          <div class="topic-art"><img src="/life/assets/summer-electricity.png" alt="" aria-hidden="true"></div>
+          <div class="story-copy">
+            <div class="story-number">02 <span>08.16</span></div>
+            <small>生活帳單</small>
+            <h3>夏月電價9月30日結束，500度差多少？</h3>
+            <p>六段累進電價拆開算，也告訴你跨季帳單怎麼看。</p>
+            <footer><span>閱讀完整專題</span><b aria-hidden="true">↗</b></footer>
+          </div>
+        </a>
+        <a class="story-card topic-story" href="/life/issues/2026-08-17/part-time-holiday-pay-2026/">
+          <div class="topic-art"><img src="/life/assets/part-time-pay.png" alt="" aria-hidden="true"></div>
+          <div class="story-copy">
+            <div class="story-number">03 <span>08.17</span></div>
+            <small>打工權益</small>
+            <h3>休息日做6小時，時薪不能只乘6</h3>
+            <p>用115年最低時薪直接試算，分清休息日與國定假日。</p>
+            <footer><span>閱讀完整專題</span><b aria-hidden="true">↗</b></footer>
+          </div>
+        </a>
+        <a class="story-card topic-story" href="/life/issues/2026-08-18/labor-pension-voluntary-contribution-2026/">
+          <div class="topic-art"><img src="/life/assets/labor-pension.png" alt="" aria-hidden="true"></div>
+          <div class="story-copy">
+            <div class="story-number">04 <span>08.18</span></div>
+            <small>勞退理財</small>
+            <h3>想勞退自提，雇主拒辦也能自己申報</h3>
+            <p>1%到6%怎麼選、稅務效果與雇主拒絕時的處理方式。</p>
+            <footer><span>閱讀完整專題</span><b aria-hidden="true">↗</b></footer>
+          </div>
+        </a>
+        <a class="story-card topic-story" href="/life/issues/2026-08-19/delivery-worker-rights-2026/">
+          <div class="topic-art"><img src="/life/assets/delivery-rights.png" alt="" aria-hidden="true"></div>
+          <div class="story-copy">
+            <div class="story-number">05 <span>08.19</span></div>
+            <small>外送權益</small>
+            <h3>外送每單保底45元，時間公式怎麼算？</h3>
+            <p>每單取高、報酬明細、拒單保障與天然災害停業規則。</p>
+            <footer><span>閱讀完整專題</span><b aria-hidden="true">↗</b></footer>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <section class="section calculator-wrap" id="calculator">
+      <div class="calculator-card">
+        <div class="calculator-copy">
+          <p class="kicker light">今天別白忙</p>
+          <h2>加班費，先自己算一遍。</h2>
+          <p>這是月薪制常見情況的快速估算。薪資結構、國定假日或超過法定時數時，請以勞動部正式試算為準。</p>
+          <a href="https://calcr2.mol.gov.tw/Index" target="_blank" rel="noopener">打開勞動部正式試算器 ↗</a>
+        </div>
+        <div class="calculator-panel">
+          <div class="segmented" aria-label="加班日類型">
+            <button class="active" type="button" data-day="weekday">平日加班</button>
+            <button type="button" data-day="rest">休息日加班</button>
+          </div>
+          <label><span>每月工資</span><div class="money-input"><b>NT$</b><input id="salary" type="number" min="0" step="1000" value="42000"></div></label>
+          <label><span>加班幾小時</span><div class="range-row"><input id="hours" type="range" min="0.5" max="4" step="0.5" value="2"><output id="hours-output">2 小時</output></div></label>
+          <div class="calculator-result"><span>這次約可領</span><strong id="estimate">NT$ 467</strong><small>以每月工資 ÷ 240 換算時薪</small></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section topics" id="about">
+      <header class="section-heading centered"><div><p class="kicker">生活沒有說明書，我們幫你補上</p><h2>你會在信裡看到這些</h2></div></header>
+      <div class="topic-grid">
+        <article><b>錢</b><h3>錢包補給</h3><p>補貼、津貼、退稅與可以少花的錢</p></article>
+        <article><b>住</b><h3>住屋大小事</h3><p>租金補貼、搬家與居住權益</p></article>
+        <article><b>工</b><h3>工作不吃虧</h3><p>薪資、加班、請假與勞保</p></article>
+        <article><b>家</b><h3>人生新關卡</h3><p>育兒、照顧、就學與長照資訊</p></article>
+      </div>
+      <div class="editor-note"><div class="stamp">官方<br>查核</div><div><small>我們的原則</small><h3>好懂歸好懂，資訊不能隨便。</h3><p>每一則內容都會附上政府官方來源、更新日期與申請入口；重要決定前，請回到原公告確認。</p></div></div>
+    </section>
+
+    <section class="final-cta" id="subscribe">
+      <div><p class="kicker light">明天早上，少查一點</p><h2>每天看懂一件事，<br>就已經很夠了。</h2><p>免費加入。信裡只講一題，完整整理留在自己的頁面。</p></div>
+      <form class="subscribe-form compact" data-life-subscribe>
+        <div class="form-row">
+          <label><span class="sr-only">電子信箱</span><input type="email" name="email" autocomplete="email" placeholder="你的 Email" maxlength="254" required></label>
+          <input type="hidden" name="city" value="不分地區">
+          <input class="honeypot" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <button type="submit">免費加入 <span aria-hidden="true">↗</span></button>
+        </div>
+        <p class="form-note" role="status">隨時可以退訂・<a href="/life/privacy/">隱私說明</a></p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a class="brand" href="/life/"><span class="brand-mark" aria-hidden="true">好</span><span class="brand-copy"><b>生活剛剛好</b><small>DAILY LIFE LETTER</small></span></a>
+    <p>每天一點點，生活剛剛好。</p>
+    <div><a href="/life/privacy/">隱私說明</a><a href="https://github.com/guanwei-cmd/guanwei-cmd.github.io">網站原始碼</a><span>公開閱讀版本</span></div>
+  </footer>
+  <script src="/life/life.js" defer></script>
+</body>
+</html>
