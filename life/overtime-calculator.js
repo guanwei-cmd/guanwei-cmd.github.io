@@ -91,7 +91,7 @@
     const shortfall = Math.max(0, Math.ceil(due) - paid);
     shortfallAmount.textContent = shortfall > 0 ? `可能短少 ${money(shortfall)}` : "目前沒有算出短少";
     copyCalculation.dataset.text = [
-      "生活剛剛好｜加班費試算",
+      "生活剛好｜加班費試算",
       resultSummary.textContent,
       ...rows.map((row) => `${row.label}：${decimalMoney(row.amount)}`),
       `依法至少應加給：${money(due)}`,
