@@ -22,7 +22,13 @@
 html { scroll-behavior: smooth; }
 body { margin: 0; color: var(--ink); background: var(--canvas); font-family: "Noto Sans TC", "PingFang TC", sans-serif; font-size: var(--fs-base); font-weight: 500; line-height: 1.75; }
 a { color: inherit; text-decoration: none; }
-h1, h2, h3, p { text-wrap: pretty; }
+/* 中文換行規則：標題配平、內文避孤字；line-breaks.js 再把斷點限制在詞界。 */
+h1, h2, h3 { overflow-wrap: break-word; line-break: strict; text-wrap: balance; }
+p, li, summary, dt, dd { overflow-wrap: break-word; line-break: strict; text-wrap: pretty; }
+html.zh-word-break h1, html.zh-word-break h2, html.zh-word-break h3,
+html.zh-word-break p, html.zh-word-break li, html.zh-word-break summary,
+html.zh-word-break dt, html.zh-word-break dd { word-break: keep-all; }
+.nb, .no-break { white-space: nowrap; }
 
 .reader-header {
   display: flex;
