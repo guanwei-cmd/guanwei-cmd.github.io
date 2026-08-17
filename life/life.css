@@ -401,10 +401,25 @@ body.intro-open { overflow: hidden; }
 .topic-grid { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
 .topic-grid article { min-height: 220px; padding: 30px; background: var(--paper); border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); transition: background .2s; }
 .topic-grid article:hover { background: var(--yellow-soft); }
-.topic-grid b { display: grid; width: 42px; height: 42px; place-items: center; color: var(--ink); background: var(--yellow); font-size: var(--fs-base); }
-.topic-grid article:nth-child(2) b { background: var(--green); }
-.topic-grid article:nth-child(3) b { background: var(--coral); }
-.topic-grid article:nth-child(4) b { background: var(--blue); }
+.topic-icon { --icon-color: #df7d68; --icon-bg: #f5f0fa; position: relative; display: block; width: 58px; height: 58px; color: var(--icon-color); background: var(--icon-bg); border: 1px solid rgba(68, 57, 82, .06); border-radius: 17px; box-shadow: 0 9px 24px rgba(68, 57, 82, .08), inset 0 1px 0 rgba(255, 255, 255, .9); }
+.topic-grid article:nth-child(2) .topic-icon { --icon-bg: #edf7f2; }
+.topic-grid article:nth-child(3) .topic-icon { --icon-bg: #fff0ec; }
+.topic-grid article:nth-child(4) .topic-icon { --icon-bg: #f1edf7; }
+.topic-icon::before, .topic-icon::after, .topic-icon i, .topic-icon i::before, .topic-icon i::after { position: absolute; display: block; box-sizing: border-box; content: ""; }
+.topic-icon-wallet i { top: 19px; left: 13px; width: 31px; height: 22px; border: 3px solid currentColor; border-radius: 6px; }
+.topic-icon-wallet i::before { top: 5px; right: -5px; width: 15px; height: 10px; background: var(--icon-bg); border: 3px solid currentColor; border-radius: 4px; }
+.topic-icon-wallet i::after { top: 9px; right: 1px; width: 3px; height: 3px; background: currentColor; border-radius: 50%; }
+.topic-icon-home::before { top: 13px; left: 17px; width: 25px; height: 25px; border-color: currentColor transparent transparent currentColor; border-style: solid; border-width: 3px; border-radius: 3px; transform: rotate(45deg); }
+.topic-icon-home i { top: 25px; left: 15px; width: 28px; height: 21px; background: var(--icon-bg); border: 3px solid currentColor; border-top: 0; border-radius: 0 0 5px 5px; }
+.topic-icon-home i::after { right: 7px; bottom: 0; width: 7px; height: 12px; border: 3px solid currentColor; border-bottom: 0; border-radius: 3px 3px 0 0; }
+.topic-icon-work i { top: 20px; left: 12px; width: 34px; height: 24px; border: 3px solid currentColor; border-radius: 6px; }
+.topic-icon-work i::before { top: -10px; left: 7px; width: 14px; height: 9px; border: 3px solid currentColor; border-bottom: 0; border-radius: 5px 5px 0 0; }
+.topic-icon-work i::after { top: 7px; left: 0; width: 28px; height: 3px; background: currentColor; }
+.topic-icon-work::after { top: 28px; left: 20px; width: 3px; height: 7px; background: var(--icon-bg); border: 1px solid currentColor; border-radius: 2px; box-shadow: 12px 0 0 -1px var(--icon-bg), 12px 0 0 0 currentColor; }
+.topic-icon-family::before { top: 13px; left: 16px; width: 10px; height: 10px; background: currentColor; border-radius: 50%; box-shadow: 17px 2px 0 -1px currentColor; }
+.topic-icon-family i { top: 27px; left: 11px; width: 36px; height: 18px; border: 3px solid currentColor; border-bottom: 0; border-radius: 20px 20px 0 0; }
+.topic-icon-family i::before { top: 5px; left: 7px; width: 16px; height: 13px; background: var(--icon-bg); border: 3px solid currentColor; border-bottom: 0; border-radius: 12px 12px 0 0; }
+.topic-icon-family i::after { top: -4px; left: 11px; width: 8px; height: 8px; background: currentColor; border-radius: 50%; }
 .topic-grid h3 { margin: 24px 0 8px; color: var(--ink); font-size: var(--fs-base); }
 .topic-grid p { margin: 0; color: var(--muted); font-size: var(--fs-xs); line-height: 1.75; }
 .editor-note { display: grid; grid-template-columns: 100px 1fr; gap: 30px; align-items: center; max-width: 820px; padding: 38px; margin: 65px auto 0; background: #ffffff; border: 1px solid var(--line); border-left: 8px solid var(--yellow); }
