@@ -3,19 +3,19 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="時薪制不是排除在勞基法之外。這篇用115年最低時薪196元示範休息日6小時與國定假日6小時，並教你怎麼留下出勤紀錄。">
+  <meta name="description" content="用完整加班費試算器計算平日、休息日、國定假日與例假日工資，支援時薪與月薪、分鐘工時、倍率明細及薪資單差額。">
   <meta name="robots" content="index,follow">
   <meta name="theme-color" content="#f6df3b">
   <meta property="og:type" content="article">
   <meta property="og:title" content="打工族假日工資：休息日做6小時，至少要怎麼算？｜生活剛剛好">
-  <meta property="og:description" content="時薪制不是排除在勞基法之外。這篇用115年最低時薪196元示範休息日6小時與國定假日6小時，並教你怎麼留下出勤紀錄。">
+  <meta property="og:description" content="用完整加班費試算器計算平日、休息日、國定假日與例假日工資，支援時薪與月薪、分鐘工時、倍率明細及薪資單差額。">
   <meta property="og:url" content="https://guanwei-cmd.github.io/life/issues/2026-08-17/part-time-holiday-pay-2026/">
   <meta property="og:image" content="https://guanwei-cmd.github.io/life/og-purple.png">
   <title>打工族假日工資：休息日做6小時，至少要怎麼算？｜生活剛剛好</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/life/issue.css?v=20260817-type">
+  <link rel="stylesheet" href="/life/issue.css?v=20260817-calc">
 </head>
 <body>
   <header class="reader-header">
@@ -31,7 +31,7 @@
   <main>
     <article class="issue-hero has-illustration">
       <figure class="issue-illustration" aria-hidden="true"><span></span><img src="/life/assets/part-time-pay-purple.png" alt=""></figure>
-      <div class="issue-meta"><span>打工權益</span><time>2026.08.17</time><span>約 4 分鐘</span></div>
+      <div class="issue-meta"><span>打工權益</span><time>2026.08.17</time><span>約 6 分鐘</span></div>
       <p class="issue-label">今天只講一件事</p>
       <h1>打工族假日工資：休息日做6小時，至少要怎麼算？</h1>
       <p class="issue-dek">時薪制不是排除在勞基法之外。這篇用115年最低時薪196元示範休息日6小時與國定假日6小時，並教你怎麼留下出勤紀錄。</p>
@@ -42,6 +42,37 @@
     <section class="issue-section benefits-section">
       <header><p>你可以先得到什麼</p><h2>這個主題的三個重點</h2></header>
       <div class="benefit-grid"><article><small>115年最低時薪</small><strong>196 元</strong><p>部分工時與工讀生的約定時薪也不能低於這個標準。</p></article><article><small>休息日出勤6小時</small><strong>約 1,830 元</strong><p>前2小時按4/3、後4小時按5/3，以實際出勤時數計算。</p></article><article><small>國定假日出勤6小時</small><strong>合計 2,352 元</strong><p>前提是該日原本是約定工作日，且國定假日沒有依法調移。</p></article></div>
+    </section>
+
+    <section class="issue-section overtime-calculator-section" id="overtime-calculator">
+      <header><p>直接算給你看</p><h2>加班費與假日工資試算器</h2></header>
+      <p class="calculator-intro">選擇計薪方式與出勤日類型，試算器會拆出每一段倍率、依法應加給的金額，以及薪資單可能短少多少。</p>
+      <form class="overtime-calculator" id="overtimeCalculator" novalidate>
+        <div class="calculator-fields">
+          <fieldset class="calculator-choice">
+            <legend>你的計薪方式</legend>
+            <label><input type="radio" name="payBasis" value="hourly" checked><span>時薪制</span></label>
+            <label><input type="radio" name="payBasis" value="monthly"><span>月薪制</span></label>
+          </fieldset>
+          <div class="calculator-input-grid">
+            <label><span id="wageLabel">平日每小時工資額</span><span class="input-with-unit"><input id="wageAmount" type="number" min="1" step="1" value="196" inputmode="decimal" required><b id="wageUnit">元／小時</b></span><small id="wageHint">應把屬於工資的固定加給換算進來，不一定只看底薪。</small></label>
+            <label><span>這一天的性質</span><select id="workdayType"><option value="weekday">平日延長工時</option><option value="rest" selected>休息日出勤</option><option value="holiday">國定假日出勤</option><option value="regular">例假日出勤</option></select><small id="dayTypeHint">休息日不一定是星期六，應依勞動契約與班表判斷。</small></label>
+            <label><span>實際出勤時間</span><span class="time-inputs"><span><input id="workHours" type="number" min="0" max="12" step="1" value="6" inputmode="numeric"><b>小時</b></span><span><select id="workMinutes"><option value="0" selected>0</option><option value="15">15</option><option value="30">30</option><option value="45">45</option></select><b>分鐘</b></span></span><small id="hoursHint">休息日最多試算至12小時。</small></label>
+            <label id="scheduledHoursRow" hidden><span>當天原約定工時</span><span class="input-with-unit"><input id="scheduledHours" type="number" min="1" max="8" step="0.5" value="6" inputmode="decimal"><b>小時</b></span><small>國定假日未滿8小時出勤，仍可能須加發原約定一日工資。</small></label>
+            <label><span>薪資單已列的加班／假日加給</span><span class="input-with-unit"><input id="paidAmount" type="number" min="0" step="1" value="0" inputmode="decimal"><b>元</b></span><small>可留白或填0；填入後會一起估算可能短少金額。</small></label>
+          </div>
+        </div>
+        <aside class="calculator-result-panel" aria-live="polite">
+          <p class="result-kicker">本次依法至少應加給</p>
+          <strong id="overtimeTotal">1,830 元</strong>
+          <p id="resultSummary">以時薪196元、休息日出勤6小時計算。</p>
+          <dl id="calculationBreakdown"></dl>
+          <div class="shortfall-result"><span>和薪資單相比</span><b id="shortfallAmount">可能短少 1,830 元</b></div>
+          <button type="button" id="copyCalculation">複製試算明細</button>
+          <p class="copy-status" id="copyStatus" role="status"></p>
+        </aside>
+      </form>
+      <div class="calculator-notes"><strong>使用前先知道</strong><ul><li>平日每小時工資額應納入符合工資定義的固定給付；月薪制以月薪總額除以240換算。</li><li>國定假日已合法調移時，原日期會成為正常工作日；例假日原則上不得出勤，只有天災、事變或突發事件等法定例外。</li><li>這是一般勞基法情境的最低金額試算，不涵蓋變形工時、責任制核備、團體協約或個別工資約定。</li></ul></div>
     </section>
 
     <section class="issue-section split-section">
@@ -80,5 +111,6 @@
     <section class="reader-cta"><div><small>明天再處理另一件事</small><h2>每天只看懂一個生活問題，就很夠了。</h2></div><a href="/life/#subscribe">訂閱生活剛剛好</a></section>
   </main>
   <footer><a href="/life/">生活剛剛好</a><span>內容是資訊整理，不取代主管機關的個案認定。</span></footer>
+  <script src="/life/overtime-calculator.js?v=20260817"></script>
 </body>
 </html>
