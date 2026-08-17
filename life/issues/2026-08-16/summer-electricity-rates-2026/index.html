@@ -15,7 +15,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/life/issue.css?v=20260817-white">
+  <link rel="stylesheet" href="/life/issue.css?v=20260817-electricity">
 </head>
 <body>
   <header class="reader-header">
@@ -31,7 +31,7 @@
   <main>
     <article class="issue-hero has-illustration">
       <figure class="issue-illustration" aria-hidden="true"><span></span><img src="/life/assets/summer-electricity-purple.png" alt=""></figure>
-      <div class="issue-meta"><span>生活帳單</span><time>2026.08.16</time><span>約 4 分鐘</span></div>
+      <div class="issue-meta"><span>生活帳單</span><time>2026.08.16</time><span>約 6 分鐘</span></div>
       <p class="issue-label">今天只講一件事</p>
       <h1>夏月電價9月30日結束：500度為什麼多約175元？</h1>
       <p class="issue-dek">夏月電價不是把整張帳單乘上一個倍率，而是依六個級距分段計算。這篇用500度住宅用電直接算給你看，也整理跨季帳單與節電獎勵。</p>
@@ -41,7 +41,34 @@
 
     <section class="issue-section benefits-section">
       <header><p>你可以先得到什麼</p><h2>這個主題的三個重點</h2></header>
-      <div class="benefit-grid"><article><small>夏月期間</small><strong>6/1 至 9/30</strong><p>住宅非時間電價適用；跨越季節的抄表期間會按實際日數分別計算。</p></article><article><small>每月用電500度</small><strong>約多 175 元</strong><p>夏月約1,395元，非夏月約1,220元，為基本電費分段試算。</p></article><article><small>節電獎勵</small><strong>每度 0.6 元</strong><p>完成登錄後，符合節電條件的度數可依規定折抵當期電費。</p></article></div>
+      <div class="benefit-grid"><article><small>夏月期間</small><strong>6/1 至 9/30</strong><p>住宅非時間電價適用；跨越季節的抄表期間會按實際日數分別計算。</p></article><article><small>每月用電500度</small><strong>約多 175 元</strong><p>夏月約1,395元，非夏月約1,220元，為流動電費分段試算。</p></article><article><small>節電獎勵</small><strong>每度 0.6 元</strong><p>完成登錄後，符合節電條件的度數可依規定折抵當期電費。</p></article></div>
+    </section>
+
+    <section class="issue-section electricity-calculator-section" id="electricity-calculator">
+      <header><p>把帳單數字放進來</p><h2>住宅電費拆解試算器</h2></header>
+      <p class="calculator-intro">參考電費優化工具的「先辨識帳單、再比較方案」流程，這裡先聚焦一般住宅最常用的累進電價。輸入帳單度數或兩次電表讀數，就能看見每一級距怎麼算，以及相同用電量在夏月多多少。</p>
+      <form class="electricity-calculator" id="electricityCalculator" novalidate>
+        <div class="calculator-fields">
+          <fieldset class="calculator-choice"><legend>你手上有哪個數字？</legend><label><input type="radio" name="usageMode" value="total" checked><span>帳單總度數</span></label><label><input type="radio" name="usageMode" value="meter"><span>兩次電表讀數</span></label></fieldset>
+          <div class="calculator-input-grid">
+            <label><span>帳單多久一期？</span><select id="billingMonths"><option value="1">每月一期</option><option value="2" selected>兩個月一期</option></select><small>一般住宅多為兩個月抄表一次；選兩個月時，各級距上限會自動加倍。</small></label>
+            <label><span>這期主要適用哪種電價？</span><select id="billingSeason"><option value="summer" selected>夏月（6/1 至 9/30）</option><option value="regular">非夏月</option></select><small>跨越6月1日或9月30日的帳單需按天數拆算，本工具先估單一季別。</small></label>
+            <label id="totalUsageRow"><span>本期用電度數</span><span class="input-with-unit"><input id="totalUsage" type="number" min="0" step="1" value="1000" inputmode="decimal"><b>度</b></span></label>
+            <div class="meter-reading-grid" id="meterReadingRows" hidden>
+              <label><span>上次電表讀數</span><span class="input-with-unit"><input id="previousReading" type="number" min="0" step="1" value="12840" inputmode="decimal"><b>度</b></span></label>
+              <label><span>本次電表讀數</span><span class="input-with-unit"><input id="currentReading" type="number" min="0" step="1" value="13840" inputmode="decimal"><b>度</b></span></label>
+            </div>
+          </div>
+        </div>
+        <aside class="calculator-result-panel electricity-result" aria-live="polite">
+          <p class="result-kicker">這期流動電費預估</p><strong id="electricityTotal">2,790 元</strong><p id="electricitySummary">兩個月共1,000度，平均每月500度。</p>
+          <div class="electricity-comparison"><span id="comparisonLabel">同度數改用非夏月單價</span><b id="comparisonTotal">2,441 元</b><strong id="seasonDifference">夏月約多 350 元</strong></div>
+          <dl id="electricityBreakdown"></dl>
+          <div class="electricity-metrics"><div><span>平均每度</span><b id="averageRate">2.79 元</b></div><div><span>最高進入級距</span><b id="highestTier">331–500 度</b></div></div>
+          <button type="button" id="copyElectricityCalculation">複製試算明細</button><p class="copy-status" id="electricityCopyStatus" role="status"></p>
+        </aside>
+      </form>
+      <div class="calculator-notes"><strong>這份結果怎麼看</strong><ul><li>採累進計費，只有落在較高級距的那一段度數，才會乘上較高單價，不是全部用電一起變貴。</li><li>結果只估住宅非時間電價的流動電費，未含公共設施分攤、節電獎勵、功率因數、最低度數或其他帳單調整。</li><li>跨季、時間電價、營業用電或特殊減免，請改用頁尾台電官方試算核對。</li></ul></div>
     </section>
 
     <section class="issue-section split-section">
@@ -53,13 +80,13 @@
       <aside>
         <p class="section-kicker">容易卡住</p>
         <h2>先避開這些情況</h2>
-        <ul class="caution-list"><li>175元是每月500度的基本電費比較，不含營業用電、時間電價、公共設施分攤與其他帳單項目。</li><li>夏月帳單變高通常同時包含『用得更多』與『夏月單價較高』，不要把整個差額都當成漲價。</li><li>兩個月抄表一次時，級距度數會加倍；例如120度以下的級距變成240度以下。</li><li>節電獎勵的比較基準與資格以台電登錄頁說明為準，不是每一度用電都直接折0.6元。</li></ul>
+        <ul class="caution-list"><li>175元是每月500度的流動電費比較，不含營業用電、時間電價、公共設施分攤與其他帳單項目。</li><li>夏月帳單變高通常同時包含『用得更多』與『夏月單價較高』，不要把整個差額都當成漲價。</li><li>兩個月抄表一次時，級距度數會加倍；例如120度以下的級距變成240度以下。</li><li>節電獎勵的比較基準與資格以台電登錄頁說明為準，不是每一度用電都直接折0.6元。</li></ul>
       </aside>
     </section>
 
     <section class="issue-section documents-section">
       <header><p>開始以前</p><h2>先找出這三個帳單資訊</h2></header>
-      <ul class="document-list"><li>最近一期電費單上的計費期間與總用電度數。</li><li>去年同期或上一個非夏月帳單，方便區分是單價變動還是用電量增加。</li><li>電號；要登錄節電獎勵或使用台電服務時會用到。</li></ul>
+      <ul class="document-list"><li>最近一期電費單上的計費期間與總用電度數；也可以準備上次與本次電表讀數直接相減。</li><li>去年同期或上一個非夏月帳單，方便區分是單價變動還是用電量增加。</li><li>電號；要登錄節電獎勵或使用台電服務時會用到。</li></ul>
     </section>
 
     <section class="issue-section steps-section">
@@ -80,5 +107,6 @@
     <section class="reader-cta"><div><small>明天再處理另一件事</small><h2>每天只看懂一個生活問題，就很夠了。</h2></div><a href="/life/#subscribe">訂閱生活剛好</a></section>
   </main>
   <footer><a href="/life/">生活剛好</a><span>內容是資訊整理，不取代主管機關的個案認定。</span></footer>
+  <script src="/life/electricity-bill-calculator.js?v=20260817"></script>
 </body>
 </html>

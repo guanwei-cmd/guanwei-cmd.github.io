@@ -95,7 +95,7 @@ main { width: min(960px, calc(100% - 40px)); margin: auto; }
 .benefit-grid strong { display: block; margin: 11px 0; color: var(--ink); font-size: var(--fs-m); font-weight: 900; }
 .benefit-grid p { margin: 0; color: var(--ink-soft); font-size: var(--fs-xs); line-height: 1.75; }
 .calculator-intro { max-width: 760px; margin: -8px 0 32px; color: var(--ink-soft); font-size: var(--fs-base); font-weight: 500; line-height: 1.75; }
-.overtime-calculator { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(320px, .9fr); gap: 24px; align-items: start; }
+.overtime-calculator, .electricity-calculator { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(320px, .9fr); gap: 24px; align-items: start; }
 .calculator-fields, .calculator-result-panel { padding: 34px; background: var(--paper); border: 1px solid var(--line); box-shadow: 0 12px 30px rgba(34, 36, 40, .06); }
 .calculator-fields { border-top: 7px solid var(--yellow); }
 .calculator-choice { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; padding: 0; margin: 0 0 26px; border: 0; }
@@ -110,6 +110,9 @@ main { width: min(960px, calc(100% - 40px)); margin: auto; }
 .calculator-input-grid input, .calculator-input-grid select { width: 100%; min-height: 52px; padding: 0 14px; color: var(--ink); background: #fff; border: 1px solid #cfc7d8; border-radius: 0; font: inherit; font-weight: 700; outline: 0; }
 .calculator-input-grid input:focus, .calculator-input-grid select:focus { border-color: var(--coral); box-shadow: 0 0 0 3px rgba(240, 144, 122, .2); }
 .calculator-input-grid small { color: var(--muted); font-size: var(--fs-xs); font-weight: 500; line-height: 1.6; }
+.meter-reading-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.meter-reading-grid[hidden] { display: none; }
+.meter-reading-grid > label { display: grid; gap: 8px; color: var(--ink); font-size: var(--fs-base); font-weight: 800; }
 .input-with-unit, .time-inputs > span { display: grid; grid-template-columns: 1fr auto; align-items: center; background: #fff; border: 1px solid #cfc7d8; }
 .input-with-unit:focus-within, .time-inputs > span:focus-within { border-color: var(--coral); box-shadow: 0 0 0 3px rgba(240, 144, 122, .2); }
 .input-with-unit input, .time-inputs input, .time-inputs select { border: 0; box-shadow: none; }
@@ -123,6 +126,7 @@ main { width: min(960px, calc(100% - 40px)); margin: auto; }
 .calculator-result-panel dl { padding: 18px 0; margin: 0; border-top: 1px solid rgba(255, 255, 255, .18); border-bottom: 1px solid rgba(255, 255, 255, .18); }
 .calculator-result-panel dl div { display: grid; grid-template-columns: 1fr auto; gap: 16px; padding: 8px 0; }
 .calculator-result-panel dt { color: #d7d0df; font-size: var(--fs-xs); line-height: 1.6; }
+.calculator-result-panel dt small { display: block; color: #a99fb2; font-size: var(--fs-xs); font-weight: 500; }
 .calculator-result-panel dd { margin: 0; color: #fff; font-size: var(--fs-xs); font-weight: 800; text-align: right; }
 .shortfall-result { display: grid; gap: 6px; padding: 20px 0; }
 .shortfall-result span { color: #d7d0df; font-size: var(--fs-xs); }
@@ -130,6 +134,15 @@ main { width: min(960px, calc(100% - 40px)); margin: auto; }
 .calculator-result-panel button { width: 100%; min-height: 52px; color: var(--ink); background: var(--yellow); border: 0; cursor: pointer; font: inherit; font-size: var(--fs-base); font-weight: 800; }
 .calculator-result-panel button:hover { background: #e5dcf1; }
 .copy-status { min-height: 24px; margin: 9px 0 0; color: #d7d0df; font-size: var(--fs-xs); text-align: center; }
+.electricity-comparison { display: grid; gap: 2px; padding: 18px 0; margin: 5px 0 4px; border-top: 1px solid rgba(255, 255, 255, .18); }
+.electricity-comparison span { color: #d7d0df; font-size: var(--fs-xs); }
+.electricity-comparison b { color: #fff; font-size: var(--fs-m); }
+.electricity-comparison strong { color: var(--yellow); font-size: var(--fs-base); }
+.electricity-result dl { max-height: 330px; overflow: auto; }
+.electricity-metrics { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; padding: 18px 0; }
+.electricity-metrics div { display: grid; gap: 2px; }
+.electricity-metrics span { color: #d7d0df; font-size: var(--fs-xs); }
+.electricity-metrics b { color: #fff; font-size: var(--fs-base); }
 .calculator-notes { padding: 27px 30px; margin-top: 20px; background: var(--yellow-soft); border-left: 7px solid var(--yellow); }
 .calculator-notes strong { color: var(--ink); font-size: var(--fs-m); }
 .calculator-notes ul { padding-left: 22px; margin: 13px 0 0; }
@@ -198,10 +211,11 @@ body > footer a { color: var(--ink); font-weight: 800; }
   .reader-cta { align-items: flex-start; flex-direction: column; padding: 40px 25px; }
   .reader-cta a { width: 100%; text-align: center; }
   body > footer { align-items: flex-start; flex-direction: column; }
-  .overtime-calculator { grid-template-columns: 1fr; }
+  .overtime-calculator, .electricity-calculator { grid-template-columns: 1fr; }
   .calculator-fields, .calculator-result-panel { padding: 26px 20px; }
   .calculator-result-panel { position: static; }
   .time-inputs { grid-template-columns: 1fr; }
+  .meter-reading-grid { grid-template-columns: 1fr; }
   .calculator-result-panel > strong { font-size: var(--fs-l); }
 }
 
