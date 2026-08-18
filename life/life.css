@@ -311,6 +311,7 @@ body.intro-open { overflow: hidden; }
 .kicker.light { color: var(--yellow); }
 .story-grid.single-topic { display: grid; grid-template-columns: 1fr; }
 .story-grid.issue-archive { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
+.story-card[hidden] { display: none !important; }
 .story-card {
   position: relative;
   display: flex;
